@@ -18,7 +18,8 @@ import lombok.Singular;
 @Builder
 @EqualsAndHashCode(of = { "id" })
 public class PostDto {
-	Long id;
+//	Long id;
+	String id;
 	String authorId;
 	String text;
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")

@@ -3,10 +3,12 @@ package propets.model.messaging;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import org.springframework.data.annotation.Id;
+
+//import javax.persistence.ElementCollection;
+//import javax.persistence.Entity;
+//import javax.persistence.GeneratedValue;
+//import javax.persistence.Id;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -26,18 +28,20 @@ import lombok.Singular;
 @EqualsAndHashCode(of = { "id" })
 @Builder
 
-@Entity
+//@Entity
 
 public class Post {
+//	@Id
+//	@GeneratedValue
+//	Long id;
 	@Id
-	@GeneratedValue
-	Long id;
+	String id;
 	String content;
 	String author;
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	@Default
 	LocalDateTime postDate = LocalDateTime.now();
-	@ElementCollection
+//	@ElementCollection
 	@Singular("imagesUrl")
 	List<String> imagesUrl;
 	

@@ -18,7 +18,7 @@ import propets.dto.messaging.PostDto;
 import propets.dto.messaging.PostRequestDto;
 import propets.service.messaging.MessagingService;
 
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "*", exposedHeaders = "X-token")
 @RestController
 @RequestMapping("/{lang}/v1")
 public class MessagingController {

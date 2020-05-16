@@ -1,5 +1,7 @@
 package propets.controller.messaging;
 
+import java.security.Principal;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -9,7 +11,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,17 +19,17 @@ import propets.dto.messaging.PostDto;
 import propets.dto.messaging.PostRequestDto;
 import propets.service.messaging.MessagingService;
 
-@CrossOrigin(origins = "*", exposedHeaders = "X-token")
 @RestController
 @RequestMapping("/{lang}/v1")
+@CrossOrigin(origins = "*", exposedHeaders = {"X-token"}, allowedHeaders = {"X-token"})
 public class MessagingController {
 
 	@Autowired
 	MessagingService messagingService;
 
 	@PostMapping
-	public PostDto addPost(@RequestHeader("X-author") String author, @RequestBody PostRequestDto postRequestDto) {
-		return messagingService.addPost(author, postRequestDto);
+	public PostDto addPost(Principal author, @RequestBody PostRequestDto postRequestDto) {
+		return messagingService.addPost(author.getName(), postRequestDto);
 	}
 
 	@GetMapping("/{id}")

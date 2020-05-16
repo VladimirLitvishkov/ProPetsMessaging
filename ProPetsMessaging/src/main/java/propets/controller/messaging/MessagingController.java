@@ -21,7 +21,7 @@ import propets.service.messaging.MessagingService;
 
 @RestController
 @RequestMapping("/{lang}/v1")
-@CrossOrigin(origins = "*", exposedHeaders = { "X-token" }/* , allowedHeaders = {"X-token"} */)
+@CrossOrigin(origins = "*", exposedHeaders = { "X-token" })
 public class MessagingController {
 
 	@Autowired

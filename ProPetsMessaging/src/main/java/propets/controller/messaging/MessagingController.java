@@ -21,7 +21,7 @@ import propets.service.messaging.MessagingService;
 
 @RestController
 @RequestMapping("/{lang}/v1")
-@CrossOrigin(origins = "*", exposedHeaders = {"X-token"}, allowedHeaders = {"X-token"})
+@CrossOrigin(origins = "*", exposedHeaders = { "X-token" }/* , allowedHeaders = {"X-token"} */)
 public class MessagingController {
 
 	@Autowired
@@ -53,8 +53,8 @@ public class MessagingController {
 	}
 
 	@GetMapping("/posts")
-	public Page<PostDto> viewPosts(@RequestParam int page, @RequestParam int limit) {
-		return messagingService.viewPosts(page, limit);
+	public Page<PostDto> viewPosts(@RequestParam int page, @RequestParam int size) {
+		return messagingService.viewPosts(page, size);
 	}
 
 }

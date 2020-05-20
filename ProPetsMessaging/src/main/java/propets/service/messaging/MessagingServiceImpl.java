@@ -24,7 +24,6 @@ public class MessagingServiceImpl implements MessagingService {
 
 	@Override
 	public PostDto addPost(String author, PostRequestDto postRequestDto) {
-//		checkPostRequest(postRequestDto);
 		Post post = Post.builder().author(author).content(postRequestDto.getText())
 				.imagesUrl(postRequestDto.getImagesUrl()).build();
 		messagingRepository.save(post);

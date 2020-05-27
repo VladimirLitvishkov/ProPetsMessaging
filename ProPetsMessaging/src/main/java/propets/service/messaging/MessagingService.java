@@ -9,13 +9,13 @@ public interface MessagingService {
 
 	PostDto addPost(String author, PostRequestDto postRequestDto);
 
-	PostDto findPostById(Long id);
+	PostDto findPostById(String id);
 
-	PostDto deletePost(Long id);
+	PostDto deletePost(String id);
 
-	PostDto updatePost(Long id, PostRequestDto postRequestDto);
+	PostDto updatePost(String id, PostRequestDto postRequestDto);
 	
-	PostDto complain(Long id);
+	PostDto complain(String id);
 	
 	Page<PostDto> viewPosts(int page, int limit);
 

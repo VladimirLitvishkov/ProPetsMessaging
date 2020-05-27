@@ -1,7 +1,5 @@
 package propets.controller.messaging;
 
-import java.security.Principal;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -28,27 +26,27 @@ public class MessagingController {
 	MessagingService messagingService;
 
 	@PostMapping
-	public PostDto addPost(Principal author, @RequestBody PostRequestDto postRequestDto) {
-		return messagingService.addPost(author.getName(), postRequestDto);
+	public PostDto addPost(@PathVariable String author, @RequestBody PostRequestDto postRequestDto) {
+		return messagingService.addPost(author, postRequestDto);
 	}
 
 	@GetMapping("/{id}")
-	public PostDto findPostById(@PathVariable Long id) {
+	public PostDto findPostById(@PathVariable String id) {
 		return messagingService.findPostById(id);
 	}
 
 	@DeleteMapping("/{id}")
-	public PostDto deletePost(@PathVariable Long id) {
+	public PostDto deletePost(@PathVariable String id) {
 		return messagingService.deletePost(id);
 	}
 
 	@PutMapping("/{id}")
-	public PostDto updatePost(@PathVariable Long id, @RequestBody PostRequestDto postRequestDto) {
+	public PostDto updatePost(@PathVariable String id, @RequestBody PostRequestDto postRequestDto) {
 		return messagingService.updatePost(id, postRequestDto);
 	}
 
 	@GetMapping("/complain/{id}")
-	public PostDto complain(@PathVariable Long id) {
+	public PostDto complain(@PathVariable String id) {
 		return messagingService.complain(id);
 	}
 

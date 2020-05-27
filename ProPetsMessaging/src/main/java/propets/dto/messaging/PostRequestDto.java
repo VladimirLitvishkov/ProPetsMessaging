@@ -8,6 +8,8 @@ import lombok.Getter;
 public class PostRequestDto {
 
 	String text;
-	List<String> imagesUrl;
+	List<String> images;
+	String userName;
+	String avatar;
 
 }

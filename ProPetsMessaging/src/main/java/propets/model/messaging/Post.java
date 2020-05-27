@@ -28,25 +28,17 @@ import lombok.Singular;
 @EqualsAndHashCode(of = { "id" })
 @Builder
 
-//@Entity
-
 public class Post {
-//	@Id
-//	@GeneratedValue
-//	Long id;
 	@Id
 	String id;
-	String content;
-	String author;
+	String text;
+	String userLogin;
+	String userName;
+	String avatar;
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	@Default
-	LocalDateTime postDate = LocalDateTime.now();
-//	@ElementCollection
-	@Singular("imagesUrl")
-	List<String> imagesUrl;
-	
-//	public void addImages (List<String> images) {
-//		imagesUrl.addAll(images);
-//	}
+	LocalDateTime datePost = LocalDateTime.now();
+	@Singular("images")
+	List<String> images;
 
 }

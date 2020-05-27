@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 import propets.model.messaging.Post;
 
-public interface MessagingRepository extends MongoRepository<Post, Long> {
+public interface MessagingRepository extends MongoRepository<Post, String> {
 
 	Page<Post> findAll(Pageable pageable);
 }

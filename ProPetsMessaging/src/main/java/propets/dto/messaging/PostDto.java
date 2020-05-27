@@ -18,13 +18,14 @@ import lombok.Singular;
 @Builder
 @EqualsAndHashCode(of = { "id" })
 public class PostDto {
-//	Long id;
 	String id;
-	String authorId;
+	String userLogin;
+	String userName;
+	String avatar;
 	String text;
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-	LocalDateTime postDate;
-	@Singular("imagesUrl")
-	List<String> imagesUrl;
+	LocalDateTime datePost;
+	@Singular("images")
+	List<String> images;
 
 }

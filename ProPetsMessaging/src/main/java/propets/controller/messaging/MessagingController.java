@@ -34,6 +34,11 @@ public class MessagingController {
 	public PostDto findPostById(@PathVariable String id) {
 		return messagingService.findPostById(id);
 	}
+	
+	@GetMapping("/v2/{id}")//TODO
+	public PostDto findPostById2(@PathVariable String id) {
+		return messagingService.findPostById(id);
+	}
 
 	@DeleteMapping("/{id}")
 	public PostDto deletePost(@PathVariable String id) {

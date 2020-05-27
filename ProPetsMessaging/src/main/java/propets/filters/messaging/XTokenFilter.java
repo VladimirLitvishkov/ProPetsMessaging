@@ -64,11 +64,11 @@ public class XTokenFilter implements Filter {
 			try {
 				responseAccServ = restTemplate.exchange(requestAccServ, String.class);
 			} catch (RestClientException e) {
-				response.sendError(409);
+				response.sendError(409,"m1");
 				return;
 			}
 			if (responseAccServ.getStatusCode().equals(HttpStatus.CONFLICT)) {
-				response.sendError(409);
+				response.sendError(409,"m2");
 				return;
 			}
 			if (checkForCreatPost(path, method)) {

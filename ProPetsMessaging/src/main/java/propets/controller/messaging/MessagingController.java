@@ -57,8 +57,8 @@ public class MessagingController {
 		return messagingService.viewPosts(page, size);
 	}
 	
-	@GetMapping("/posts/allid")
-	public Set<PostDto> findPostsByAllId(Set<String> allId) {
+	@PostMapping("/posts/allid")
+	public Set<PostDto> findPostsByAllId(@RequestBody Set<String> allId) {
 		return messagingService.findPostsByAllId(allId);
 	}
 

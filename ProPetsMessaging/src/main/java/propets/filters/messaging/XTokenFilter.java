@@ -116,7 +116,7 @@ public class XTokenFilter implements Filter {
 	}
 
 	private boolean checkPointCut(String path, String method) {
-		boolean check = "Options".equalsIgnoreCase(method) || path.matches(".+/v1/v2/\\w+");
+		boolean check = "Options".equalsIgnoreCase(method) || path.matches(".+/v1/posts/allid");
 		return check;
 	}
 

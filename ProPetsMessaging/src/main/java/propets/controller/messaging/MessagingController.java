@@ -1,5 +1,7 @@
 package propets.controller.messaging;
 
+import java.util.Set;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -34,11 +36,6 @@ public class MessagingController {
 	public PostDto findPostById(@PathVariable String id) {
 		return messagingService.findPostById(id);
 	}
-	
-	@GetMapping("/v2/{id}")//TODO
-	public PostDto findPostById2(@PathVariable String id) {
-		return messagingService.findPostById(id);
-	}
 
 	@DeleteMapping("/{id}")
 	public PostDto deletePost(@PathVariable String id) {
@@ -58,6 +55,11 @@ public class MessagingController {
 	@GetMapping("/posts")
 	public Page<PostDto> viewPosts(@RequestParam int page, @RequestParam int size) {
 		return messagingService.viewPosts(page, size);
+	}
+	
+	@GetMapping("/posts/allid")
+	public Set<PostDto> findPostsByAllId(Set<String> allId) {
+		return messagingService.findPostsByAllId(allId);
 	}
 
 }

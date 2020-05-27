@@ -1,5 +1,7 @@
 package propets.service.messaging;
 
+import java.util.Set;
+
 import org.springframework.data.domain.Page;
 
 import propets.dto.messaging.PostDto;
@@ -18,5 +20,7 @@ public interface MessagingService {
 	PostDto complain(String id);
 	
 	Page<PostDto> viewPosts(int page, int limit);
+	
+	Set<PostDto> findPostsByAllId(Set<String> allId);
 
 }

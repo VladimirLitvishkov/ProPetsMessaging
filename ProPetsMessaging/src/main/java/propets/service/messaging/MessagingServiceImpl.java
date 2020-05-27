@@ -1,5 +1,6 @@
 package propets.service.messaging;
 
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,8 +34,8 @@ public class MessagingServiceImpl implements MessagingService {
 
 	private PostDto buildPostDto(Post post) {
 		return PostDto.builder().id(post.getId()).userLogin(post.getUserLogin()).userName(post.getUserName())
-				.avatar(post.getAvatar()).text(post.getText()).images(post.getImages())
-				.datePost(post.getDatePost()).build();
+				.avatar(post.getAvatar()).text(post.getText()).images(post.getImages()).datePost(post.getDatePost())
+				.build();
 	}
 
 	@Override
@@ -77,6 +78,13 @@ public class MessagingServiceImpl implements MessagingService {
 				messagingRepository.findAll(pageable).stream().map(this::buildPostDto).collect(Collectors.toList()));
 //		List<PostDto> list = messagingRepository.findAll(pageable).stream().map(this::buildPostDto).collect(Collectors.toList());
 		return list;
+	}
+
+	@Override
+	public Set<PostDto> findPostsByAllId(Set<String> allId) {
+		return allId.stream().map(
+				(id) -> buildPostDto(messagingRepository.findById(id).orElseThrow(() -> new PostIdNotFoundException())))
+				.collect(Collectors.toSet());
 	}
 
 }

@@ -25,8 +25,8 @@ public class MessagingController {
 	@Autowired
 	MessagingService messagingService;
 
-	@PostMapping
-	public PostDto addPost(@PathVariable String author, @RequestBody PostRequestDto postRequestDto) {
+	@PostMapping("/{login:.*}")
+	public PostDto addPost(@PathVariable("login") String author, @RequestBody PostRequestDto postRequestDto) {
 		return messagingService.addPost(author, postRequestDto);
 	}
 

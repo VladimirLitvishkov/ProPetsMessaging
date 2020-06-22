@@ -15,5 +15,8 @@ public class MessagingConfiguration {
 	
 	@Value("${requestToken}")
 	String requestToken;
+	
+	@Value("${spring.application.name}")
+	String applicationName;
 
 }
